@@ -1,6 +1,6 @@
-
-import java.util.ArrayList;
-import java.util.List;
+ import java.util.Iterator;
+ import java.util.ArrayList;
+ import java.util.List;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -40,6 +40,6 @@ public abstract class AbstractBinaryTree<E> extends AbstractTree<E>
             snapshot.add(left(p));
         if (right(p) != null)
             snapshot.add(right(p));
-        return  snapshot; //modified
+        return  (Iterable<Position<E>>) snapshot; 
     } 
 }
