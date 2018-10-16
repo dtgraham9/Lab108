@@ -1,3 +1,6 @@
+
+import java.util.List;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -35,7 +38,12 @@ public class Client {
         myTree.addLeft(myTree.root.getLeft().getLeft().getLeft().getLeft(), "5");
         myTree.addRight(myTree.root.getLeft().getLeft().getLeft().getLeft(), "2");
         
-        LinkedBinaryTree.parenthesize(myTree, myTree.root);
+        //LinkedBinaryTree.parenthesize(myTree, myTree.root);
+        Iterable<Position<String>> p =  myTree.breadthfirst();
+        for(Position<String> s : p){
+            System.out.print(s.getElement());
+        }
+        
     }
     
 }

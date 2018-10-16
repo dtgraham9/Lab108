@@ -40,6 +40,6 @@ public abstract class AbstractBinaryTree<E> extends AbstractTree<E>
             snapshot.add(left(p));
         if (right(p) != null)
             snapshot.add(right(p));
-        return  (Iterable<Position<E>>) snapshot; 
+        return  snapshot; 
     } 
 }

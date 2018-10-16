@@ -40,7 +40,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
     /** Adds positions of the subtree rooted at Position p to the given snapshot. */
     private void preorderSubtree(Position<E> p, List<Position<E>> snapshot) {
         snapshot.add(p); // for preorder, we add position p before exploring subtrees
-        for (Position<E> c : (List<Position<E>>) children(p))
+        for (Position<E> c : children(p))
             preorderSubtree(c, snapshot);
     }
     
@@ -50,13 +50,13 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         List<Position<E>> snapshot = new ArrayList<>( );
         if (!isEmpty( ))
             preorderSubtree(root( ), snapshot); // fill the snapshot recursively
-        return (Iterable<Position<E>>) snapshot;
+        return snapshot;
     }
     
     
     /** Adds positions of the subtree rooted at Position p to the given snapshot. */
     private void postorderSubtree(Position<E> p, List<Position<E>> snapshot) { 
-        for (Position<E> c : (List<Position<E>>) children(p))
+        for (Position<E> c :  children(p))
             postorderSubtree(c, snapshot);
         snapshot.add(p); // for postorder, we add position p after exploring subtrees
         }
@@ -66,7 +66,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         List<Position<E>> snapshot = new ArrayList<>( );
         if (!isEmpty( ))
             postorderSubtree(root( ), snapshot); // fill the snapshot recursively
-        return (Iterable<Position<E>>) snapshot;
+        return snapshot;
     }
     
     /** Returns an iterable collection of positions of the tree in breadth-first order.
@@ -79,11 +79,17 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         while (!fringe.isEmpty( )) { 
             Position<E> p = fringe.dequeue( ); // remove from front of the queue
             snapshot.add(p); // report this position
-            for (Position<E> c : (List<Position<E>>) children(p))
+            for (Position<E> c : children(p))
                 fringe.enqueue(c); // add children to back of queue
             }
         }
-        return (Iterable<Position<E>>) snapshot;
+        return  snapshot;
+    }
+    
+    public static <E> void printBreadthFirstIndent(Tree<E> T, Position<E> p, int d) { 
+        System.out.println(spaces(2*d) + p.getElement( )); // indent based on d
+        for (Position<E> c :  T.children(p))
+            printBreadthFirstIndent(T, c, d+1); // child depth is d+1
     }
     
     /** Adds positions of the subtree rooted at Position p to the given snapshot. */
@@ -100,7 +106,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         List<Position<E>> snapshot = new ArrayList<>( );
         if (!isEmpty( ))
             inorderSubtree(root( ), snapshot); // fill the snapshot recursively
-        return (Iterable<Position<E>>) snapshot;
+        return  snapshot;
     }
     
     /** Prints preorder representation of subtree of T rooted at p having depth d.
@@ -110,7 +116,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
      * @param d */
     public static <E> void printPreorderIndent(Tree<E> T, Position<E> p, int d) { 
         System.out.println(spaces(2*d) + p.getElement( )); // indent based on d
-        for (Position<E> c : (List<Position<E>>) T.children(p))
+        for (Position<E> c :  T.children(p))
             printPreorderIndent(T, c, d+1); // child depth is d+1
     }
     /**
@@ -138,7 +144,7 @@ void printPreorderLabeled(Tree<E> T, Position<E> p, ArrayList<Integer> path) {
         for (int j=0; j < d; j++) System.out.print(path.get(j) + (j == d-1 ? " " : "."));
             System.out.println(p.getElement( ));
         path.add(1); // add path entry for first child
-        for (Position<E> c : (List<Position<E>>) T.children(p)) { 
+        for (Position<E> c :  T.children(p)) { 
             printPreorderLabeled(T, c, path);
             path.set(d, 1 + path.get(d)); // increment last entry of path
         }
@@ -155,7 +161,7 @@ void printPreorderLabeled(Tree<E> T, Position<E> p, ArrayList<Integer> path) {
         System.out.print(p.getElement( ));
         if (T.isInternal(p)) { 
             boolean firstTime = true;
-            for (Position<E> c : (List<Position<E>>) T.children(p)) { 
+            for (Position<E> c : T.children(p)) { 
                 System.out.print( (firstTime ? " (" : ", ") ); // determine proper punctuation
                 firstTime = false; // any future passes will get comma
                 parenthesize(T, c); // recur on child
