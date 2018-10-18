@@ -1,5 +1,9 @@
+/**
+ * Data Structures & Algorithms 6th Edition
+ * Goodrick, Tamassia, Goldwasser
+ * Code Fragement 6.11
+ */
 /** Realization of a FIFO queue as an adaptation of a SinglyLinkedList. */
-
 public class LinkedQueue<E> implements Queue<E> {
     private SinglyLinkedList<E> list = new SinglyLinkedList<>( ); // an empty list
 

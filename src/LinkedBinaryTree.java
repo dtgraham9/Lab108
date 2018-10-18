@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-  import java.util.Iterator;
+ import java.util.Iterator;
  import java.util.ArrayList;
  import java.util.List;
 /**
@@ -85,13 +80,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         }
         return  snapshot;
     }
-    
-    public static <E> void printBreadthFirstIndent(Tree<E> T, Position<E> p, int d) { 
-        System.out.println(spaces(2*d) + p.getElement( )); // indent based on d
-        for (Position<E> c :  T.children(p))
-            printBreadthFirstIndent(T, c, d+1); // child depth is d+1
-    }
-    
+        
     /** Adds positions of the subtree rooted at Position p to the given snapshot. */
     private void inorderSubtree(Position<E> p, List<Position<E>> snapshot) { 
         if (left(p) != null)

@@ -1,21 +1,17 @@
- import java.util.Iterator;
  import java.util.ArrayList;
  import java.util.List;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author Thompson
+ * Data Structures & Algorithms 6th Edition
+ * Goodrick, Tamassia, Goldwasser
+ * Code Fragement 8.7
  */
 /** An abstract base class providing some functionality of the BinaryTree interface.*/
 public abstract class AbstractBinaryTree<E> extends AbstractTree<E>
                                                     implements BinaryTree<E> { 
-    /** Returns the Position of p's sibling (or null if no sibling exists). */
+    /** Returns the Position of p's sibling (or null if no sibling exists).
+     * @param p
+     * @return  */
     public Position<E> sibling(Position<E> p) { 
         Position<E> parent = parent(p);
         if (parent == null) return null; // p must be the root

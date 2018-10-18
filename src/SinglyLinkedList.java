@@ -1,3 +1,8 @@
+/**
+ * Data Structures & Algorithms 6th Edition
+ * Goodrick, Tamassia, Goldwasser
+ * Code Fragement 3.14, 3.15
+ */
 public class SinglyLinkedList<E> { 
 //---------------- nested Node class ----------------
     private static class Node<E> {

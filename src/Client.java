@@ -1,19 +1,13 @@
-
-import java.util.List;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author Graham
+ * Creates a binary tree structure and traverses it by preorder, 
+ * postorder, inorder, and breadth first
+ * @author Graham Thompson
  */
 public class Client {
 
     /**
+     * Creates a binary tree structure and traverses it by preorder, 
+     * postorder, inorder, and breadth first
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -38,11 +32,32 @@ public class Client {
         myTree.addLeft(myTree.root.getLeft().getLeft().getLeft().getLeft(), "5");
         myTree.addRight(myTree.root.getLeft().getLeft().getLeft().getLeft(), "2");
         
-        //LinkedBinaryTree.parenthesize(myTree, myTree.root);
+        System.out.println("Equation: (((5+2)*(2-1)/((2+9))+((7-2)-1))*8)");
+        Iterable<Position<String>> preOrder = myTree.preorder();
+        System.out.print("Preorder Traversal: ");
+        for(Position<String> po : preOrder){
+            System.out.print(po.getElement() + " ");
+        }
+        Iterable<Position<String>> inOrder = myTree.inorder();
+        System.out.print("\nInorder Traversal: ");
+        for(Position<String> i : inOrder){
+            System.out.print(i.getElement() + " ");
+        }
+        System.out.print("\nPostorder traversal: ");
+        Iterable<Position<String>> postOrder = myTree.postorder();
+        for(Position<String> ps : postOrder){
+            System.out.print(ps.getElement() + " ");
+        }
+        System.out.print("\nBreadth Traversal: ");
         Iterable<Position<String>> p =  myTree.breadthfirst();
         for(Position<String> s : p){
-            System.out.print(s.getElement());
+            System.out.print(s.getElement() + " ");
         }
+        System.out.print("\nPreorder Indent Traversal: \n");
+        LinkedBinaryTree.printPreorderIndent(myTree, myTree.root, 0);
+        System.out.print("\nParenthesized traversal: ");
+        LinkedBinaryTree.parenthesize(myTree, myTree.root);
+        System.out.print("\n");
         
     }
     

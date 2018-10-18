@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
- import java.util.Iterator;
- import java.util.ArrayList;
- import java.util.List;
 /**
- *
- * @author Thompson
+ * Data Structures & Algorithms 6th Edition
+ * Goodrick, Tamassia, Goldwasser
+ * Code Fragement 8.6
  */
 /** An interface for a binary tree, in which each node has at most two children. */
 public interface BinaryTree<E> extends Tree<E> { 

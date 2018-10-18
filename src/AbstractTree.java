@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
- import java.util.Iterator;
- import java.util.ArrayList;
- import java.util.List;
 /**
- *
- * @author Thompson
+ * Data Structures & Algorithms 6th Edition
+ * Goodrick, Tamassia, Goldwasser
+ * Code Fragement 8.2, 8.3, 8.4, 8.5
  */
 /** An abstract base class providing some functionality of the Tree interface. */
 public abstract class AbstractTree<E> implements Tree<E> {
