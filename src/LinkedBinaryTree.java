@@ -2,8 +2,10 @@
  import java.util.ArrayList;
  import java.util.List;
 /**
- *
- * @author Thompson
+ * Data Structures & Algorithms 6th Edition
+ * Goodrick, Tamassia, Goldwasser
+ * Code Fragement 8.8, 8.9, 8.10, 8.11, 8.16, 8.17, 8.18, 8.19, 8.20, 8.21, 
+ * 8.22, 8.23, 8.24, 8.26
  */
 /** Concrete implementation of a binary tree using a node-based, linked structure.
  * @param <E> */
